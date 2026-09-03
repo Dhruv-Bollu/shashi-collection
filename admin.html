@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Shashi Collection</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside class="admin-side">
+    <div class="admin-logo">SHASHI<br><span>ADMIN</span></div>
+    <nav>
+      <a href="#" class="active">Products</a>
+      <a href="index.html" target="_blank">View Storefront ↗</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-top">
+      <h1>Product Management</h1>
+      <button class="btn-primary" id="openAddBtn">+ Add Product</button>
+    </header>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Total Products</div></div>
+      <div class="stat-card"><div class="stat-num" id="statPhotos">0</div><div class="stat-label">Photos Uploaded</div></div>
+      <div class="stat-card"><div class="stat-num" id="statCats">0</div><div class="stat-label">Categories Used</div></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Photo</th><th>Name</th><th>Category</th><th>Price</th><th>Sizes</th><th>Stock</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<!-- Add / Edit Modal -->
+<div class="modal-overlay" id="formOverlay">
+  <div class="admin-modal">
+    <div class="admin-modal-head">
+      <h2 id="formTitle">Add Product</h2>
+      <span id="formClose">&times;</span>
+    </div>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+      <div class="form-row">
+        <label>Product Name *</label>
+        <input type="text" id="fName" required placeholder="e.g. Cotton Kurta - White">
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Category *</label>
+          <select id="fCategory" required></select>
+        </div>
+        <div class="form-row">
+          <label>Color</label>
+          <input type="text" id="fColor" placeholder="e.g. Navy Blue">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Selling Price (₹) *</label>
+          <input type="number" id="fPrice" required min="0">
+        </div>
+        <div class="form-row">
+          <label>MRP (₹)</label>
+          <input type="number" id="fMrp" min="0">
+        </div>
+        <div class="form-row">
+          <label>Stock Qty</label>
+          <input type="number" id="fStock" min="0" value="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Sizes (comma separated)</label>
+        <input type="text" id="fSizes" placeholder="e.g. S, M, L, XL, XXL or Single, Double, King">
+      </div>
+      <div class="form-row">
+        <label>Description</label>
+        <textarea id="fDesc" rows="3" placeholder="Fabric, fit, care instructions..."></textarea>
+      </div>
+      <div class="form-row">
+        <label>Photos (up to 10 per product, 100 total supported)</label>
+        <input type="file" id="fPhotos" multiple accept="image/*">
+        <div class="preview-row" id="previewRow"></div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn-ghost" id="cancelForm">Cancel</button>
+        <button type="submit" class="btn-primary" id="saveBtn">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
