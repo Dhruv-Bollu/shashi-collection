@@ -3,9 +3,22 @@ const multer = require('multer');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const basicAuth = require('express-basic-auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// ----- Admin authentication -----
+// Set these as environment variables on your host (Render → Environment tab) to change them.
+// If not set, these defaults are used — change them before going live!
+const ADMIN_USER = process.env.ADMIN_USER || 'shashi';
+const ADMIN_PASS = process.env.ADMIN_PASS || 'ChangeThisPassword123';
+
+const adminAuth = basicAuth({
+  users: { [ADMIN_USER]: ADMIN_PASS },
+  challenge: true,
+  realm: 'Shashi Collection Admin'
+});
 
 const DATA_FILE = path.join(__dirname, 'data', 'products.json');
 const UPLOAD_DIR = path.join(__dirname, 'public', 'uploads');
@@ -33,6 +46,12 @@ const upload = multer({ storage, limits: { fileSize: 8 * 1024 * 1024 } });
 
 app.use(cors());
 app.use(express.json());
+
+// Protect the admin page itself — must come BEFORE express.static
+app.get('/admin.html', adminAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ----- Categories, grouped the way Shashi Collection actually sells -----
@@ -68,7 +87,7 @@ app.get('/api/products/:id', (req, res) => {
   res.json(product);
 });
 
-app.post('/api/products', upload.array('photos', 10), (req, res) => {
+app.post('/api/products', adminAuth, upload.array('photos', 10), (req, res) => {
   const db = readDB();
   const { name, category, price, mrp, sizes, description, stock, color } = req.body;
   if (!name || !category || !price) {
@@ -93,7 +112,7 @@ app.post('/api/products', upload.array('photos', 10), (req, res) => {
   res.status(201).json(product);
 });
 
-app.put('/api/products/:id', upload.array('photos', 10), (req, res) => {
+app.put('/api/products/:id', adminAuth, upload.array('photos', 10), (req, res) => {
   const db = readDB();
   const idx = db.products.findIndex(p => p.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: 'Not found' });
@@ -124,7 +143,7 @@ app.put('/api/products/:id', upload.array('photos', 10), (req, res) => {
   res.json(db.products[idx]);
 });
 
-app.delete('/api/products/:id', (req, res) => {
+app.delete('/api/products/:id', adminAuth, (req, res) => {
   const db = readDB();
   const idx = db.products.findIndex(p => p.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: 'Not found' });
