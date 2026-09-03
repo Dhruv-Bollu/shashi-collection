@@ -7,7 +7,26 @@
 <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-<div class="admin-shell">
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <div class="login-logo">SHASHI<br><span>ADMIN</span></div>
+    <p class="login-sub">Enter your admin credentials to continue</p>
+    <form id="loginForm">
+      <div class="form-row">
+        <label>Username</label>
+        <input type="text" id="loginUser" required autocomplete="username">
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input type="password" id="loginPass" required autocomplete="current-password">
+      </div>
+      <div id="loginError" class="login-error"></div>
+      <button type="submit" class="btn-primary" style="width:100%;">Login</button>
+    </form>
+  </div>
+</div>
+
+<div class="admin-shell" id="adminShell" style="display:none;">
   <aside class="admin-side">
     <div class="admin-logo">SHASHI<br><span>ADMIN</span></div>
     <nav>

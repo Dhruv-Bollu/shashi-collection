@@ -44,7 +44,17 @@ td img{width:44px;height:56px;object-fit:cover;border-radius:3px;}
 .act-btn.del{color:#b04040;}
 .empty-row td{text-align:center;padding:50px;color:var(--gray);}
 
-/* Modal */
+/* Login overlay */
+.login-overlay{
+  position:fixed;inset:0;background:var(--black);display:flex;align-items:center;justify-content:center;z-index:1000;
+}
+.login-box{
+  background:#fff;border-radius:10px;padding:40px 36px;width:100%;max-width:360px;text-align:center;
+}
+.login-logo{font-family:Georgia,serif;letter-spacing:.1em;font-size:1.3rem;margin-bottom:6px;}
+.login-logo span{color:var(--gold);font-size:.7rem;letter-spacing:.3em;}
+.login-sub{font-size:.8rem;color:var(--gray);margin-bottom:22px;}
+.login-error{color:#b04040;font-size:.78rem;margin:-6px 0 12px;min-height:16px;}
 .modal-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;
   z-index:900;opacity:0;visibility:hidden;transition:.3s;padding:20px;

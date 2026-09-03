@@ -9,6 +9,48 @@ let CATEGORIES = [];
 let editingId = null;
 let selectedFiles = [];
 
+// ---- Login gate ----
+function getAuthHeader() {
+  const creds = sessionStorage.getItem('shashi_admin_creds');
+  return creds ? { Authorization: 'Basic ' + creds } : {};
+}
+
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const user = document.getElementById('loginUser').value;
+  const pass = document.getElementById('loginPass').value;
+  const encoded = btoa(`${user}:${pass}`);
+  const errorEl = document.getElementById('loginError');
+  errorEl.textContent = '';
+
+  // Verify credentials by attempting a protected call (a harmless PUT to a fake id is fine —
+  // we just care whether we get 401 Unauthorized back or not)
+  try {
+    const res = await fetch(`${API}/products/__auth_check__`, {
+      method: 'DELETE',
+      headers: { Authorization: 'Basic ' + encoded }
+    });
+    if (res.status === 401) {
+      errorEl.textContent = 'Incorrect username or password.';
+      return;
+    }
+    // Any other response (404 for the fake id, etc.) means auth passed
+    sessionStorage.setItem('shashi_admin_creds', encoded);
+    document.getElementById('loginOverlay').style.display = 'none';
+    document.getElementById('adminShell').style.display = 'flex';
+    init();
+  } catch (err) {
+    errorEl.textContent = 'Could not reach the server. Try again.';
+  }
+});
+
+// If already logged in this session, skip straight to the dashboard
+if (sessionStorage.getItem('shashi_admin_creds')) {
+  document.getElementById('loginOverlay').style.display = 'none';
+  document.getElementById('adminShell').style.display = 'flex';
+  init();
+}
+
 async function init() {
   const [catRes, groupRes] = await Promise.all([
     fetch(`${API}/categories`), fetch(`${API}/category-groups`)
@@ -111,7 +153,7 @@ function openEdit(id) {
 
 async function deleteProduct(id) {
   if (!confirm('Delete this product? This cannot be undone.')) return;
-  await fetch(`${API}/products/${id}`, { method: 'DELETE' });
+  await fetch(`${API}/products/${id}`, { method: 'DELETE', headers: getAuthHeader() });
   await loadProducts();
 }
 
@@ -136,9 +178,9 @@ document.getElementById('productForm').addEventListener('submit', async (e) => {
     if (editingId) {
       const existing = PRODUCTS.find(p => p.id === editingId);
       fd.append('keepPhotos', JSON.stringify(existing.photos || []));
-      await fetch(`${API}/products/${editingId}`, { method: 'PUT', body: fd });
+      await fetch(`${API}/products/${editingId}`, { method: 'PUT', headers: getAuthHeader(), body: fd });
     } else {
-      await fetch(`${API}/products`, { method: 'POST', body: fd });
+      await fetch(`${API}/products`, { method: 'POST', headers: getAuthHeader(), body: fd });
     }
     await loadProducts();
     closeForm();
@@ -150,4 +192,4 @@ document.getElementById('productForm').addEventListener('submit', async (e) => {
   }
 });
 
-init();
+// init() is now triggered after successful login above
