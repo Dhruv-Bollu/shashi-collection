@@ -23,6 +23,16 @@ let selectedSize = null;
 let qty = 1;
 let cart = JSON.parse(sessionStorage.getItem('shashi_cart') || '[]');
 
+// ---- Mobile hamburger menu ----
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+document.querySelectorAll('.mobile-nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  });
+});
+
 // ---- Loader ----
 window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('loader').classList.add('hide'), 900);
@@ -109,6 +119,10 @@ function renderGrid() {
 document.getElementById('searchInput').addEventListener('input', (e) => {
   loadProducts({ search: e.target.value });
 });
+document.getElementById('searchInputMobile').addEventListener('input', (e) => {
+  loadProducts({ search: e.target.value });
+  document.getElementById('searchInput').value = e.target.value;
+});
 
 // ---- Product Modal ----
 function openProduct(id) {
@@ -155,15 +169,22 @@ function openProduct(id) {
   });
 
   document.getElementById('productOverlay').classList.add('open');
+  document.getElementById('productModal').scrollTop = 0;
   renderSimilarProducts();
 }
+
+let similarRequestToken = 0;
 
 async function renderSimilarProducts() {
   const rail = document.getElementById('similarRail');
   if (!currentProduct) { rail.innerHTML = ''; return; }
+  const myToken = ++similarRequestToken;
+  const thisProductId = currentProduct.id;
   rail.innerHTML = `<div class="similar-empty">Loading...</div>`;
   const res = await fetch(`${API}/products?category=${encodeURIComponent(currentProduct.category)}`);
   const sameCat = await res.json();
+  // If the user opened a different product while this request was in flight, discard this result
+  if (myToken !== similarRequestToken || !currentProduct || currentProduct.id !== thisProductId) return;
   const similar = sameCat.filter(p => p.id !== currentProduct.id);
   if (!similar.length) {
     rail.innerHTML = `<div class="similar-empty">No similar products in this category yet.</div>`;
