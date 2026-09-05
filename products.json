@@ -6,11 +6,18 @@
       "category": "Casual Shirts",
       "price": 599,
       "mrp": 999,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "color": "Sky Blue",
       "description": "Breathable pure cotton casual shirt, perfect for everyday wear. Regular fit.",
       "stock": 30,
-      "photos": ["https://picsum.photos/seed/shashi-shirt-blue/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-shirt-blue/600/800"
+      ],
       "createdAt": 1788400000001
     },
     {
@@ -19,11 +26,18 @@
       "category": "Formal Shirts",
       "price": 749,
       "mrp": 1299,
-      "sizes": ["M", "L", "XL", "XXL"],
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
       "color": "Charcoal Grey",
       "description": "Smart-fit formal shirt, wrinkle-resistant fabric, ideal for office wear.",
       "stock": 22,
-      "photos": ["https://picsum.photos/seed/shashi-shirt-formal/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-shirt-formal/600/800"
+      ],
       "createdAt": 1788400000002
     },
     {
@@ -32,11 +46,18 @@
       "category": "Polo T-Shirts",
       "price": 449,
       "mrp": 799,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "color": "Maroon",
       "description": "Classic pique polo t-shirt, soft cotton blend, everyday comfort.",
       "stock": 40,
-      "photos": ["https://picsum.photos/seed/shashi-polo/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-polo/600/800"
+      ],
       "createdAt": 1788400000003
     },
     {
@@ -45,11 +66,19 @@
       "category": "Round Neck Tees",
       "price": 299,
       "mrp": 499,
-      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
       "color": "Black",
       "description": "Everyday round neck t-shirt, soft cotton, great for casual outings.",
       "stock": 55,
-      "photos": ["https://picsum.photos/seed/shashi-tee-black/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-tee-black/600/800"
+      ],
       "createdAt": 1788400000004
     },
     {
@@ -58,11 +87,15 @@
       "category": "Caps",
       "price": 199,
       "mrp": 349,
-      "sizes": ["Free Size"],
+      "sizes": [
+        "Free Size"
+      ],
       "color": "Navy Blue",
       "description": "Adjustable cotton sports cap with curved brim.",
       "stock": 60,
-      "photos": ["https://picsum.photos/seed/shashi-cap/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-cap/600/800"
+      ],
       "createdAt": 1788400000005
     },
     {
@@ -71,11 +104,19 @@
       "category": "Jeans",
       "price": 899,
       "mrp": 1499,
-      "sizes": ["28", "30", "32", "34", "36"],
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
       "color": "Dark Blue",
       "description": "Stretchable slim fit denim jeans, durable stitching, all-day comfort.",
       "stock": 25,
-      "photos": ["https://picsum.photos/seed/shashi-jeans-slim/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-jeans-slim/600/800"
+      ],
       "createdAt": 1788400000006
     },
     {
@@ -84,11 +125,18 @@
       "category": "Baggy Fit Pants",
       "price": 949,
       "mrp": 1599,
-      "sizes": ["30", "32", "34", "36"],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
       "color": "Light Wash",
       "description": "Trendy relaxed baggy fit denim, streetwear style.",
       "stock": 18,
-      "photos": ["https://picsum.photos/seed/shashi-jeans-baggy/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-jeans-baggy/600/800"
+      ],
       "createdAt": 1788400000007
     },
     {
@@ -97,11 +145,19 @@
       "category": "Formal Pants",
       "price": 799,
       "mrp": 1299,
-      "sizes": ["30", "32", "34", "36", "38"],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
       "color": "Black",
       "description": "Slim tapered formal trouser, office-ready finish.",
       "stock": 20,
-      "photos": ["https://picsum.photos/seed/shashi-formal-pant/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-formal-pant/600/800"
+      ],
       "createdAt": 1788400000008
     },
     {
@@ -110,11 +166,18 @@
       "category": "Track Pants",
       "price": 449,
       "mrp": 699,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "color": "Grey Melange",
       "description": "Soft fleece track pants with elastic waistband, ideal for gym or lounging.",
       "stock": 35,
-      "photos": ["https://picsum.photos/seed/shashi-trackpant/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-trackpant/600/800"
+      ],
       "createdAt": 1788400000009
     },
     {
@@ -123,11 +186,18 @@
       "category": "Shorts",
       "price": 349,
       "mrp": 599,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "color": "Olive",
       "description": "Lightweight cotton shorts with side pockets, great for summer.",
       "stock": 28,
-      "photos": ["https://picsum.photos/seed/shashi-shorts/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-shorts/600/800"
+      ],
       "createdAt": 1788400000010
     },
     {
@@ -136,11 +206,15 @@
       "category": "Gym Bag",
       "price": 699,
       "mrp": 999,
-      "sizes": ["30L"],
+      "sizes": [
+        "30L"
+      ],
       "color": "Black/Red",
       "description": "Durable polyester gym duffel bag with shoe compartment and adjustable strap.",
       "stock": 15,
-      "photos": ["https://picsum.photos/seed/shashi-gymbag/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-gymbag/600/800"
+      ],
       "createdAt": 1788400000011
     },
     {
@@ -149,11 +223,15 @@
       "category": "School Bag",
       "price": 599,
       "mrp": 899,
-      "sizes": ["35L"],
+      "sizes": [
+        "35L"
+      ],
       "color": "Navy Blue",
       "description": "Spacious school backpack with laptop sleeve and multiple compartments.",
       "stock": 20,
-      "photos": ["https://picsum.photos/seed/shashi-schoolbag/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-schoolbag/600/800"
+      ],
       "createdAt": 1788400000012
     },
     {
@@ -162,11 +240,15 @@
       "category": "Trolley Bag",
       "price": 1799,
       "mrp": 2999,
-      "sizes": ["24 inch"],
+      "sizes": [
+        "24 inch"
+      ],
       "color": "Grey",
-      "description": "Hard-shell trolley bag with 360° spinner wheels and TSA lock.",
+      "description": "Hard-shell trolley bag with 360\u00b0 spinner wheels and TSA lock.",
       "stock": 10,
-      "photos": ["https://picsum.photos/seed/shashi-trolley/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-trolley/600/800"
+      ],
       "createdAt": 1788400000013
     },
     {
@@ -175,11 +257,17 @@
       "category": "Bedsheet",
       "price": 549,
       "mrp": 899,
-      "sizes": ["Single", "Double", "King"],
+      "sizes": [
+        "Single",
+        "Double",
+        "King"
+      ],
       "color": "Floral Print",
       "description": "100% cotton bedsheet set, soft feel, machine washable.",
       "stock": 25,
-      "photos": ["https://picsum.photos/seed/shashi-bedsheet/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-bedsheet/600/800"
+      ],
       "createdAt": 1788400000014
     },
     {
@@ -188,11 +276,16 @@
       "category": "Blanket",
       "price": 449,
       "mrp": 799,
-      "sizes": ["Single", "Double"],
+      "sizes": [
+        "Single",
+        "Double"
+      ],
       "color": "Maroon",
       "description": "Warm and lightweight fleece blanket, perfect for all seasons.",
       "stock": 30,
-      "photos": ["https://picsum.photos/seed/shashi-blanket/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-blanket/600/800"
+      ],
       "createdAt": 1788400000015
     },
     {
@@ -201,11 +294,17 @@
       "category": "Mosquito Net",
       "price": 399,
       "mrp": 649,
-      "sizes": ["Single", "Double", "King"],
+      "sizes": [
+        "Single",
+        "Double",
+        "King"
+      ],
       "color": "White",
       "description": "Polyester mosquito net with easy hanging kit, fine mesh protection.",
       "stock": 18,
-      "photos": ["https://picsum.photos/seed/shashi-mosquitonet/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-mosquitonet/600/800"
+      ],
       "createdAt": 1788400000016
     },
     {
@@ -214,11 +313,15 @@
       "category": "Towel",
       "price": 299,
       "mrp": 499,
-      "sizes": ["Standard"],
+      "sizes": [
+        "Standard"
+      ],
       "color": "Assorted",
       "description": "Super absorbent cotton bath towels, quick-dry finish.",
       "stock": 40,
-      "photos": ["https://picsum.photos/seed/shashi-towel/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-towel/600/800"
+      ],
       "createdAt": 1788400000017
     },
     {
@@ -227,11 +330,18 @@
       "category": "Vests",
       "price": 349,
       "mrp": 549,
-      "sizes": ["M", "L", "XL", "XXL"],
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
       "color": "White",
       "description": "Soft breathable cotton vests, everyday innerwear essential.",
       "stock": 45,
-      "photos": ["https://picsum.photos/seed/shashi-vest/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-vest/600/800"
+      ],
       "createdAt": 1788400000018
     },
     {
@@ -240,11 +350,15 @@
       "category": "Socks",
       "price": 199,
       "mrp": 349,
-      "sizes": ["Free Size"],
+      "sizes": [
+        "Free Size"
+      ],
       "color": "Assorted",
       "description": "Comfortable cotton-blend ankle socks, breathable and durable.",
       "stock": 50,
-      "photos": ["https://picsum.photos/seed/shashi-socks/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-socks/600/800"
+      ],
       "createdAt": 1788400000019
     },
     {
@@ -253,11 +367,15 @@
       "category": "Handkerchief",
       "price": 149,
       "mrp": 249,
-      "sizes": ["Free Size"],
+      "sizes": [
+        "Free Size"
+      ],
       "color": "White/Checks",
       "description": "Soft cotton handkerchiefs, daily use pack of 6.",
       "stock": 60,
-      "photos": ["https://picsum.photos/seed/shashi-hanky/600/800"],
+      "photos": [
+        "https://picsum.photos/seed/shashi-hanky/600/800"
+      ],
       "createdAt": 1788400000020
     }
   ]
