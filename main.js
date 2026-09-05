@@ -3,7 +3,18 @@
 // set your live Render backend URL below, e.g. 'https://shashi-api.onrender.com/api'
 // If frontend and backend are on the SAME host (e.g. Option A - everything on Render),
 // leave this as '/api'.
-const API = 'https://YOUR-RENDER-BACKEND-URL.onrender.com/api';
+const API = 'https://shashi-collection.onrender.com/api';
+const BACKEND_ORIGIN = API.replace(/\/api$/, '');
+
+// Uploaded photos are stored as relative paths like '/uploads/xyz.jpg'.
+// On split hosting (frontend on Netlify, backend on Render) that path must be
+// resolved against the Render origin, or the browser looks for it on Netlify and fails.
+function resolvePhoto(path) {
+  if (!path) return '';
+  if (/^https?:\/\//i.test(path)) return path; // already absolute (e.g. seed photos)
+  return BACKEND_ORIGIN + path;
+}
+
 let PRODUCTS = [];
 let CATEGORIES = [];
 let currentProduct = null;
@@ -70,7 +81,7 @@ function renderGrid() {
     return;
   }
   grid.innerHTML = PRODUCTS.map((p, i) => {
-    const img = p.photos && p.photos[0] ? p.photos[0] : 'https://via.placeholder.com/400x533?text=Shashi+Collection';
+    const img = p.photos && p.photos[0] ? resolvePhoto(p.photos[0]) : 'https://via.placeholder.com/400x533?text=Shashi+Collection';
     const off = p.mrp > p.price ? Math.round(100 - (p.price / p.mrp) * 100) : 0;
     return `
     <div class="card" style="animation-delay:${(i % 8) * 0.06}s" data-id="${p.id}">
@@ -107,7 +118,9 @@ function openProduct(id) {
   selectedSize = currentProduct.sizes[0] || null;
   qty = 1;
 
-  const photos = currentProduct.photos.length ? currentProduct.photos : ['https://via.placeholder.com/600x600?text=Shashi+Collection'];
+  const photos = currentProduct.photos.length
+    ? currentProduct.photos.map(resolvePhoto)
+    : ['https://via.placeholder.com/600x600?text=Shashi+Collection'];
   document.getElementById('modalMainImg').src = photos[0];
   document.getElementById('modalThumbs').innerHTML = photos.map((p, i) =>
     `<img src="${p}" class="${i === 0 ? 'active' : ''}" data-i="${i}">`).join('');
@@ -157,7 +170,7 @@ async function renderSimilarProducts() {
     return;
   }
   rail.innerHTML = similar.map(p => {
-    const img = p.photos && p.photos[0] ? p.photos[0] : 'https://via.placeholder.com/150x190?text=Shashi';
+    const img = p.photos && p.photos[0] ? resolvePhoto(p.photos[0]) : 'https://via.placeholder.com/150x190?text=Shashi';
     return `
     <div class="similar-card" data-id="${p.id}">
       <div class="sc-img"><img src="${img}" alt="${p.name}"></div>
@@ -193,7 +206,7 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
   if (!currentProduct) return;
   cart.push({
     id: currentProduct.id, name: currentProduct.name, price: currentProduct.price,
-    photo: currentProduct.photos[0] || '', size: selectedSize, qty
+    photo: currentProduct.photos[0] ? resolvePhoto(currentProduct.photos[0]) : '', size: selectedSize, qty
   });
   sessionStorage.setItem('shashi_cart', JSON.stringify(cart));
   updateCartUI();

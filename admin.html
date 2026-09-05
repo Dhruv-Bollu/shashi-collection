@@ -18,7 +18,10 @@
       </div>
       <div class="form-row">
         <label>Password</label>
-        <input type="password" id="loginPass" required autocomplete="current-password">
+        <div class="password-wrap">
+          <input type="password" id="loginPass" required autocomplete="current-password">
+          <span class="toggle-pass" id="togglePass">👁</span>
+        </div>
       </div>
       <div id="loginError" class="login-error"></div>
       <button type="submit" class="btn-primary" style="width:100%;">Login</button>
